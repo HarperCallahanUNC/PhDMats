@@ -1,0 +1,266 @@
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2021 Jitin Nair
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,10pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% % fontspec allows you to use TTF/OTF fonts directly
+% \usepackage{fontspec}
+% \defaultfontfeatures{Ligatures=TeX}
+
+% % modified for ShareLaTeX use
+% \setmainfont[
+% SmallCapsFont = Fontin-SmallCaps.otf,
+% BoldFont = Fontin-Bold.otf,
+% ItalicFont = Fontin-Italic.otf
+% ]
+% {Fontin.otf}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[scale=0.9]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centered version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+\newenvironment{joblong}[3]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \textit{#3}
+    
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+% \begin{tabularx}{\linewidth}{ @{}X X@{} }
+% \huge{Your Name}\vspace{2pt} & \hfill \emoji{incoming-envelope} email@email.com \\
+% \raisebox{-0.05\height}\faGithub\ username \ | \
+% \raisebox{-0.00\height}\faLinkedin\ username \ | \ \raisebox{-0.05\height}\faGlobe \ mysite.com  & \hfill \emoji{calling} number
+% \end{tabularx}
+
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{Harper Callahan} \\[7.5pt]
+\href{https://github.com/HarperCallahanUNC}{\raisebox{-0.05\height}\faGithub\ HarperCallahanUNC} \ $|$ \ 
+\href{https://linkedin.com/in/username}{\raisebox{-0.05\height}\faLinkedin\ username} \ $|$ \ 
+\href{https://mysite.com}{\raisebox{-0.05\height}\faGlobe \ mysite.com} \ $|$ \ 
+\href{mailto:@mysite.com}{\raisebox{-0.05\height}\faEnvelope \ harg@unc.edu} \ $|$ \ 
+\href{tel:+18289742711}{\raisebox{-0.05\height}\faMobile \ +1(828)-974-2711} \\
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+% EXPERIENCE SECTIONS
+%----------------------------------------------------------------------------------------
+
+%Interests/ Keywords/ Summary
+%This CV can also be automatically complied and published using GitHub Actions. For details, \href{https://github.com/jitinnair1/autoCV}{click here}.
+%----------------------------------------------------------------------------------------
+%	EDUCATION
+%----------------------------------------------------------------------------------------
+
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l X@{}}	
+
+2022 - 2025 & Bachelor's Degree at \textbf{University of North Carolina Chapel Hill}\\
+& Computer Science Major, Neuroscience Minor\\ 
+& Relevant Coursework: \normalsize{Building the Infinite Brain, Big Data and Neuroscience, Reliable Machine Learning, Distributed Systems, Operating Systems, Human-Robot Interaction, Introduction to Robotics, Linear Algebra, Computational Biology, Compilers, Models of Languages and Computation, Algorithms and Analysis,}
+
+\end{tabularx}
+
+
+
+%----------------------------------------------------------------------------------------
+%	PUBLICATIONS
+%----------------------------------------------------------------------------------------
+\section{Publications}
+\begin{refsection}[citations.bib]
+\nocite{*}
+\printbibliography[heading=none]
+\end{refsection}
+
+%----------------------------------------------------------------------------------------
+%	SKILLS
+%----------------------------------------------------------------------------------------
+
+
+\section{Skills and Tools}
+
+\begin{tabularx}{\linewidth}{@{}l X@{}}
+Frameworks &  \normalsize{Python, Java, C, Matlab, Arduino, \LaTeX,TensorFlow, Pytorch, EEGLAB, Fieldtrip, MNE, Simulink, gRPC, Git, GitHub, taichi, OpenCV, NumPy, MatPlotLib, Slurm, Docker, Jupytr}\\
+Languages & \normalsize{German}  
+\end{tabularx}
+
+%----------------------------------------------------------------------------------------
+%	Research Experience
+%----------------------------------------------------------------------------------------
+
+
+\section{Research Experience}
+\begin{joblong}{Trinity Spring Research Assistant}{Dec 2024 - Present}{NASA Human Exploration Research Analog Lab}
+ \item  Collaborated with  Professors Allison Hayman, Lee Miller and Daniel Szafir, and Post Doctoral Researcher Dr. Daniel Comstock to analyze brainwave activity of Astronauts trained  on VR tasks simulating challenges for future manned exploration of Mars.   
+\item Led the software development of a comprehensive pipeline for preprocessing EEG data to measure differences in band activity in Alpha, Beta, Theta, and Gamma regions, and provided additional metrics for analysis such as Hemispheric differences, Power Spectral Slope, and Band Clustering
+\item Led the software development of a pipeline for predicting learning proficiency of VR rover tasks by using interpretable Deep Neural Networks
+\end{joblong}
+
+%Fix
+\begin{joblong}{REU Site: Assistive Technologies for People with Disabilities}{Mar 2024 - Aug 2024}{University of Texas Arlington}
+\item Through the guidance of Professor Ishfaq Ahmad, led an analysis on EEG motor prosthetic technology, resulting in a comprehensive survey paper outlining the the technologies and methodologies used by non-invasive neuroprosthetics 
+\item Led an investigation of the of non-invasive EEG systems for use by people with disabilities, and enhanced a popular EEG-based neural network to allow for motor attempt signal classification for amputee patients. 
+
+\end{joblong}
+
+\begin{joblong}{IRON Lab Research Assistant}{Jan 2024 - Present}{University of North Carolina Chapel Hill}
+\item Participated in the design and improvement of a robot performing chemical dialysis in a human - occupied lab with Principal Investigator Professor Daniel Szafir.
+\item Joined and led paper discussions in the paper review group focused on the advancements of behavioral cloning analysis in the field of Robotics and Human-Robot Interaction.
+
+\end{joblong}
+
+\begin{joblong}{Supervised Study in Machine Learning}{August 2023 - Mar 2024}{University of North Carolina Chapel Hill}
+\item Collaborated with Professor Sridhar Duggirala to research the feasibility of a model-free reinforcement learning model with safety parameters, creating a novel coordinate ascent based optimizer.
+\end{joblong}
+
+\begin{joblong}{ Joint Fluid Lab Research Assistant}{Jul 2023 - Mar 2024}{University of North Carolina at Chapel Hill}
+\item Led an investigation with Principal investigators Professor Mclaughlin and Professor Camassa to incorporate low-level software to further research the drag force on a hand in water in the context of improving swimmer efficiency.
+\item Designed and manufactured a micro controller utilizing flexible potentiometers to estimate hand pose while underwater.
+\end{joblong}
+
+
+\section{Work Experience}
+
+\begin{joblong}{Undergraduate Teaching Assistant}{Jan 2024 - May 2025}{Models of Language \& Computation}
+    \item Instructed a total of 250 students over 3 semesters on topics in Computational Theory, ranging from DFAs to Turing Machines and Reduction.
+ \item Assisted in various aspects of grading and proctoring, designed and led review sessions, and designed assignments for recursive languages.
+\end{joblong}
+
+\begin{joblong}{Undergraduate Teaching Assistant}{Aug 2023 - Dec 2023}{Data Structures \& Analysis}
+\item Instructed a total of 150 students in intro-level data-structures. 
+\item Assisted students in learning Java, using an IDE, and understanding OOP techniques, and designed and led reviews sessions.
+\end{joblong}\\
+
+\begin{jobshort}{University of North Carolina Chapel Hill - Safewalk}{Aug 2022 - Jan 2023}
+Worked with the UNC Campus Police Department to provide safety and inclusive service to all students in the UNC system.
+\end{jobshort}
+
+\begin{jobshort}{University of North Carolina Chapel Hill - Library Assistant}{Jan 2023 - Aug 2023}
+Supplied material and research assistance to patrons throughout the UNC Chapel Hill Library system.
+
+\end{jobshort}
+
+
+
+
+  
+
+
+
+
+
+
+\vfill
+\center{\footnotesize Last updated: \today}
+
+\end{document}
