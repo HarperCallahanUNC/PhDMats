@@ -1,0 +1,83 @@
+\documentclass{format}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{xcolor}
+\usepackage{soul}
+\title{Statement of Purpose}
+\author{Harper Callahan}
+\date{September 2025}
+
+%Template shit
+% --- ESSAY DISPLAY SETTINGS ---
+\SetStudentName{Harper Callahan}           % Your name
+\SetProgramName{ProgramName}           % Program you're applying for
+\SetUniversityName{UniversityName}     % University name
+\SetUniversityAbbr{\GetUniversityName} % University abbreviation (default as the cs
+
+
+\newenvironment{aspect}[1]{
+    \section*{#1}
+}
+
+\begin{document}
+
+\thispagestyle{firstpageheader}
+
+\newenvironment{professor}[6]{
+   At \GetUniversityName, I hope to work with Professor #1 and #2 research in #3. Additionally, I would like to be involved with Professor #4 and #5 research in #6.   %From here, cite Papers you read of them and why their work is interesting!
+   
+}
+%Add specific institution and work #Spec
+%What to hit: 
+%Intro: (decent)
+%Tie to larger field of invasive BCI
+%specify what you want to do (invasive BCI for speech restoration and Brain Organoid Interfacing 
+
+
+%I can trace my interest in invasive Brain Computer interfacing to a single paper, which ironically does not cover invasive implants nor computer interfacing. 
+%Fix this 
+ %Rao et al's BrainNet \cite{Rao} explored the topic of Brain-Brain Interfacing, and opened my eyes to both the field of Brain Computer Interfacing, and the possibilities of the technology. From my initial discovery of the field, my interests have expanded into the broader topic of neuroprosthtics, including motor, speech, and optical. 
+ %Maybe talk about an interest in neuroscience and HOW we learn as well?
+ %In my Ph.D, I want to explore Brain-Brain communication, and specifically the idea of transferring instilled knowledge between participants. A key example is transferring language proficiency. Languages take hundreds of hours to learn, achieving native proficiency takes thousands. Brain-Brain interfacing proposes a future where learning a new language is as simple as downloading the intuition into our minds. 
+ %\hide{Specific university work here} 
+
+\begin{aspect}{Introduction}
+
+    Brain Computer Interfaces (BCI) have enormous potential to restore activities of daily living (ADL). While my research in undergrad has been focused upon non-invasive BCI, invasive systems have captivated my interests due to their inherent multidisciplinary approaches and the increased spatial and temporal resolution.  I am particularly interested in how these invasive systems are able to use powerful methods of machine learning to make robust classifications. A key example of this research is \cite{Willet}, in which an RNN trained on phoneme decoding was able to functionally restore speech (albeit at a slower speaking rate) in a patient with ALS.  The follow-up study \cite{Stavisky} shows that this model is robust enough for the patient to gain and maintain employment. With the rapid advancements of neural networks and machine learning, our capacity for collecting, interpreting, and applying complex data from the brain will continue to grow.  During a PhD at \GetUniversityName, I hope to explore how to use efficient machine learning for increasingly complex and robust neuroprosthetics. 
+\end{aspect}
+%Hi
+\begin{aspect}{Research Experience}
+    %Not sure if I should include this section at all but it was important for how I got to everything else
+    
+    Before I discovered my interest in BCI, I was originally interested in Human-Robot Interaction (HRI). To this end, I initally joined the Joint Fluid Lab at UNC, run by Professor Richard Mclauglin and Professor Roberto Camassa, where there was an ongoing project to model the drag force of a swimmers hand, in collaboration with UNC's swim team. Due to refraction, using computer vision was considered impractical.  I proposed a hardware solution that monitored pose using a series of flexible potentiometers connected to an Arduino with BLE communication systems.  Upon approval of my project, I designed and manufactured the sensor system, and submitted my project to my advisors, from which an article summarizing my work was submitted to UNC's newsletter. \\
+    Advancing my interest in HRI, I joined the IRON lab under Professor Daniel Szafir.  In this lab, I participated in paper groups, and assisted in minor aspects of other project from other PhD students in the lab, gaining experience vital for my REU at University of Texas, Arlington, where I was advised by Professor Ishfaq Ahmad.  During the three month program, I was tasked with a research project using EEG signals for non-invasive neuroprosthetics. To understand the prolem fully, I produced a survey paper underlining methods of EEG preprocessing, signal classification, and methods of non-invasive neuroprosthetics.  Upon the completion of this survey paper, I had gained the requisite knowledge to hypothesize the use of a underrepresented signal type in non-systems called motor attempt, in which a paraplegic patient attempts to act out the movement of a limb.  Using these signals, I created a pipeline to classify create a classification algorithm with 20\% more possible movements compared to other SOTA methods.  Both papers are currently being prepared for publication. \\ 
+    My experience at my REU solidified my interest in research, and the field of BCI.  To further pursue my interests, I  joined Trinity Spring, a multi-collegic collaboration between CU Boulder, UCDavis, and UNC, through a grant funded by NASA's HERA lab, and led by Professor Allison Hayman and postdoc  Prachi Dutta. In this project, I was advised by Professor Lee Miller, Professor Daniel Szafir, and postdoc Daniel Comstock. I conducted basic research on an improved training paradigm for astronauts while in spaceflight for future Mars missions. I proposed to investigate the relation between rates of skill acquisition and EEG data, and to see what features of EEG data relate to retention of skill acquisition. To do this, I led a small research team to carry out analysis of EEG data of Astronauts performing a variety of VR tasks related to rover activity on Mars.  Our work resulted in a regression model able to predict task proficiency for tasks with an 87\% accuracy, and found that participants who learned skills at faster rate continued to use less working memory than participants who learned at a relatively slower, even when both groups reached the same level of proficiency. This work has received high praise from both the project leads of Trinity Spring, and from the heads of NASA's HERA lab. Currently, we are writing a paper detailing our findings, with plans to submit for publication. %This is true, this might actually change by the time I submit (as in it will be in review or smth)
+    %Real 
+    
+\end{aspect}
+
+
+\begin{aspect}{Future Work}
+    Upon completion of a Ph.D. in \GetUniversityName, I wish to continue working in academia with the goal of becoming a tenured professor, specifically, I want to continue studying speech and motor neuroprosthetics, and to advance the field of optical neuroprosthetics and supernumerary robotics.  Additionally, both during my Ph.D. and after, I hope to further basic research into Brain-Brain interfacing and Brain-Organoid interfacing. My eventual hope is a mirror of Professor Pothukuchi's goal of the infinite brain; a distributed system of learning in which task proficiency can be accessed by interfacing with specialized organoids.  A major milestone of this sort of research would be language acquisition, where instead of taking thousands of hours to learn a language, native fluency can be accessed by remotely interfacing with an organoid trained on this skill.  Of course, such a process is impossible at this time, but over the course of a long research career, I hope to advance understanding of how such a problem could be solved.
+\end{aspect}
+
+\begin{aspect}{Fit}
+    Since my first year at UNC, I have committed myself to pursuing a career in research. My experiences in pursuing research, especially through my REU and my work with NASA have only solidified and matured my passion. Now, with more experience in what a career in research entails, I want to become a researcher because I love the process of research. For this reason, working with \GetUniversityName's renowned and expert faculty will allow me to further my interest in research, and provide a myriad of opportunities for exploring the field of invasive BCI at a level I am unable to while pursuing my undergraduate degree. \begin{professor}{Prof1}{Pronoun1}{Field1}{Prof2}{Pronoun2}{Field2}
+    \end{professor} \hl{Talk about specific papers you are interested in, and why they align with your goals.  If other professors stand out to you, absolutely talk about them here!}.
+    
+\end{aspect}
+
+
+
+
+%Didn't pan out obviously but talk about how these experiences led to 
+
+ %Talk about hand he
+
+
+  %Change to full name
+
+%Talk here about in depth plans for dissertation and thesis, talk about how working at THIS university can help with that
+
+
+ 
+\end{document}
